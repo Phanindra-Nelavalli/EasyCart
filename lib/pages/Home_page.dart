@@ -2,6 +2,8 @@ import 'package:easycart/components/categories_list.dart';
 import 'package:easycart/components/custom_appbar.dart';
 import 'package:easycart/components/custom_search_bar.dart';
 import 'package:easycart/components/image_slider.dart';
+import 'package:easycart/components/product_card.dart';
+import 'package:easycart/models/product.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -58,6 +60,21 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ],
+              ),
+              const SizedBox(height: 15),
+              GridView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.78,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20
+                ),
+                itemCount: products.length,
+                itemBuilder: (context, index) {
+                  return ProductCard(product: products[index]);
+                },
               ),
             ],
           ),
