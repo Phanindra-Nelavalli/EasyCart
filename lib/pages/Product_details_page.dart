@@ -1,19 +1,19 @@
-import 'package:easycart/components/details_appbar.dart';
-import 'package:easycart/components/item_details.dart';
-import 'package:easycart/components/myimage_slider.dart';
+import 'package:easycart/components/Detail_page/details_appbar.dart';
+import 'package:easycart/components/Detail_page/item_details.dart';
+import 'package:easycart/components/Detail_page/myimage_slider.dart';
 import 'package:easycart/constants.dart';
 import 'package:easycart/models/product.dart';
 import 'package:flutter/material.dart';
 
-class ProductDeatailPage extends StatefulWidget {
+class ProductDetailsPage extends StatefulWidget {
   final Product product;
-  const ProductDeatailPage({super.key, required this.product});
+  const ProductDetailsPage({super.key, required this.product});
 
   @override
-  State<ProductDeatailPage> createState() => _ProductDeatailPageState();
+  State<ProductDetailsPage> createState() => _ProductDetailsPageState();
 }
 
-class _ProductDeatailPageState extends State<ProductDeatailPage> {
+class _ProductDetailsPageState extends State<ProductDetailsPage> {
   int currentImage = 0;
   @override
   Widget build(BuildContext context) {
