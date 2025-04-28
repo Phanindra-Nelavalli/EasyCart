@@ -1,3 +1,4 @@
+import 'package:easycart/components/Detail_page/description_bar.dart';
 import 'package:easycart/components/Detail_page/details_appbar.dart';
 import 'package:easycart/components/Detail_page/item_details.dart';
 import 'package:easycart/components/Detail_page/myimage_slider.dart';
@@ -14,6 +15,7 @@ class ProductDetailsPage extends StatefulWidget {
 }
 
 class _ProductDetailsPageState extends State<ProductDetailsPage> {
+  int currentColor = 1;
   int currentImage = 0;
   @override
   Widget build(BuildContext context) {
@@ -74,7 +76,58 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ItemDetails(product: widget.product)
+                    ItemDetails(product: widget.product),
+                    SizedBox(height: 15),
+                    Text(
+                      "Color",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22,
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    Row(
+                      children: List.generate(
+                        widget.product.colors.length,
+                        (index) => GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              currentColor = index;
+                            });
+                          },
+                          child: AnimatedContainer(
+                            duration: Duration(milliseconds: 300),
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: widget.product.colors[index],
+                              ),
+                              shape: BoxShape.circle,
+                              color:
+                                  currentColor == index
+                                      ? Colors.white
+                                      : widget.product.colors[index],
+                            ),
+                            margin: EdgeInsets.only(right: 10),
+                            padding:
+                                currentColor == index
+                                    ? EdgeInsets.all(2)
+                                    : null,
+                            child: Container(
+                              width: 35,
+                              height: 35,
+                              decoration: BoxDecoration(
+                                color: widget.product.colors[index],
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    DescriptionBar(productDetails: widget.product.productDetails,)
                   ],
                 ),
               ),
