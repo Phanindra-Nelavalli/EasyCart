@@ -3,11 +3,7 @@ import 'package:flutter/material.dart';
 class MyimageSlider extends StatelessWidget {
   final Function(int) onChange;
   final String image;
-  const MyimageSlider({
-    super.key,
-    required this.image,
-    required this.onChange,
-  });
+  const MyimageSlider({super.key, required this.image, required this.onChange});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +13,7 @@ class MyimageSlider extends StatelessWidget {
       child: PageView.builder(
         onPageChanged: onChange,
         itemBuilder: (context, index) {
-          return Image.asset(image);
+          return Hero(tag: image, child: Image.asset(image));
         },
       ),
     );

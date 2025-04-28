@@ -1,3 +1,4 @@
+import 'package:easycart/components/Detail_page/add_to_cart.dart';
 import 'package:easycart/components/Detail_page/description_bar.dart';
 import 'package:easycart/components/Detail_page/details_appbar.dart';
 import 'package:easycart/components/Detail_page/item_details.dart';
@@ -5,6 +6,7 @@ import 'package:easycart/components/Detail_page/myimage_slider.dart';
 import 'package:easycart/constants.dart';
 import 'package:easycart/models/product.dart';
 import 'package:flutter/material.dart';
+
 
 class ProductDetailsPage extends StatefulWidget {
   final Product product;
@@ -21,6 +23,8 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kcontentColor,
+      floatingActionButton: AddToCart(product: widget.product),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
