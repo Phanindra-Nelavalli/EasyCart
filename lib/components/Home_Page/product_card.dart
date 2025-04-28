@@ -1,6 +1,6 @@
 import 'package:easycart/constants.dart';
 import 'package:easycart/models/product.dart';
-import 'package:easycart/pages/Product_deatail_page.dart';
+import 'package:easycart/pages/Product_details_page.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
@@ -14,7 +14,7 @@ class ProductCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ProductDeatailPage(product: product),
+            builder: (context) => ProductDetailsPage(product: product),
           ),
         );
       },

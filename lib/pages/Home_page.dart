@@ -1,8 +1,8 @@
-import 'package:easycart/components/categories_list.dart';
-import 'package:easycart/components/custom_appbar.dart';
-import 'package:easycart/components/custom_search_bar.dart';
-import 'package:easycart/components/image_slider.dart';
-import 'package:easycart/components/product_card.dart';
+import 'package:easycart/components/Home_Page/categories_list.dart';
+import 'package:easycart/components/Home_Page/custom_appbar.dart';
+import 'package:easycart/components/Home_Page/custom_search_bar.dart';
+import 'package:easycart/components/Home_Page/image_slider.dart';
+import 'package:easycart/components/Home_Page/product_card.dart';
 import 'package:easycart/models/product.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
