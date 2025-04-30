@@ -5,15 +5,27 @@ import 'package:provider/provider.dart';
 class CartProvider extends ChangeNotifier {
   final List<Product> _cart = [];
   List<Product> get cart => _cart;
-  void toggleFavourite(Product product) {
+  void toggleFavourite(Product product, int Quantity) {
     if (_cart.contains(product)) {
       for (Product element in _cart) {
-        element.quantity++;
+        element.quantity += Quantity;
       }
     } else {
       _cart.add(product);
     }
     notifyListeners();
+  }
+
+  void incrementQtn(int index) {
+    _cart[index].quantity++;
+    notifyListeners();
+  }
+
+  void decrementQtn(int index) {
+    if (_cart[index].quantity > 1) {
+      _cart[index].quantity--;
+      notifyListeners();
+    }
   }
 
   static CartProvider of(BuildContext context, {bool listen = true}) {
