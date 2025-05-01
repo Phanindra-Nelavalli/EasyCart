@@ -28,6 +28,19 @@ class CartProvider extends ChangeNotifier {
     }
   }
 
+  double totalPrice() {
+    double total = 0.0;
+    for (Product element in _cart) {
+      total += element.quantity * element.price;
+    }
+    return double.parse(total.toStringAsFixed(2));
+  }
+
+  void removeItem(int index) {
+    _cart.removeAt(index);
+    notifyListeners();
+  }
+
   static CartProvider of(BuildContext context, {bool listen = true}) {
     return Provider.of<CartProvider>(context, listen: listen);
   }
