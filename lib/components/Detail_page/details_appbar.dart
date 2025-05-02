@@ -1,10 +1,14 @@
+import 'package:easycart/Providers/favourite_provider.dart';
+import 'package:easycart/models/product.dart';
 import 'package:flutter/material.dart';
 
 class DetailsAppbar extends StatelessWidget {
-  const DetailsAppbar({super.key});
+  final Product product;
+  const DetailsAppbar({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
+    final provider = FavouriteProvider.of(context);
     return Padding(
       padding: EdgeInsets.all(15),
       child: Row(
@@ -36,8 +40,13 @@ class DetailsAppbar extends StatelessWidget {
           ),
           SizedBox(width: 10),
           IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.favorite_outline),
+            onPressed: () {
+              provider.toggleFavourite(product);
+            },
+            icon:
+                provider.isExist(product)
+                    ? Icon(Icons.favorite)
+                    : Icon(Icons.favorite_outline),
             style: IconButton.styleFrom(
               backgroundColor: Colors.white,
               padding: EdgeInsets.all(10),

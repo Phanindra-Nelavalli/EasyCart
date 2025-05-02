@@ -1,3 +1,4 @@
+import 'package:easycart/Providers/favourite_provider.dart';
 import 'package:easycart/constants.dart';
 import 'package:easycart/models/product.dart';
 import 'package:easycart/pages/Product_details_page.dart';
@@ -9,6 +10,7 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = FavouriteProvider.of(context);
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -96,9 +98,13 @@ class ProductCard extends StatelessWidget {
                   color: kprimaryColor,
                 ),
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    provider.toggleFavourite(product);
+                  },
                   child: Icon(
-                    Icons.favorite_border,
+                    provider.isExist(product)
+                        ? Icons.favorite
+                        : Icons.favorite_border,
                     color: Colors.white,
                     size: 20,
                   ),
