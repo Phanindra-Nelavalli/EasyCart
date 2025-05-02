@@ -30,7 +30,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              DetailsAppbar(),
+              DetailsAppbar(product: widget.product,),
               MyimageSlider(
                 image: widget.product.image,
                 onChange:
